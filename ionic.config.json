@@ -1,0 +1,7 @@
+{
+  "name": "MyFirstKKR",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
