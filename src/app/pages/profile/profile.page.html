@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <app-user [userData]="user"></app-user>
+
+  <div class="stats-container ion-padding-start ion-padding-end">
+    <div class="stats">
+      <h3>1533</h3>
+      <p>Likes</p>
+    </div>
+    <div class="stats">
+      <h3>57K</h3>
+      <p>Followers</p>
+    </div>
+    <div class="stats">
+      <h3>636</h3>
+      <p>Following</p>
+    </div>
+  </div>
+
+  <div class="ion-padding" style="text-align: justify;">
+    <div id="line"></div>
+    <h3>About</h3>
+    <p>Our comprehensive guide to CSS flexbox layout. This complete guide explains everything about flexbox, focusing on all the different possible properties for the parent element (the flex container) and the child elements (the flex items). It also includes history, demos, patterns, and a browser support chart.</p>
+  </div>
+</ion-content>
+
+<div class="overlay" *ngIf="showOverlay">
+  <div id="guide1" (click)="guide1Click()" *ngIf="showGuide1">
+    <ion-icon name="arrow-redo-outline"></ion-icon>
+    <h1>Click here</h1>
+  </div>
+  <div id="guide2" (click)="guide2Click()" *ngIf="showGuide2">
+    <ion-icon name="arrow-redo-outline"></ion-icon>
+    <h1>Click also here</h1>
+  </div>
+</div>

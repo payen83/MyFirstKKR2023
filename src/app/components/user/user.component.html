@@ -1,0 +1,25 @@
+<div class="profile-container ion-padding">
+    <div class="profile-image">
+      <ion-avatar>
+        <ion-img [src]="userData.imageURL"></ion-img>
+      </ion-avatar>
+    </div>
+
+    <div class="profile-info ion-padding-start">
+
+      <div class="profile-plus">
+        <div class="profile-name">
+          <h1>{{ userData.name }}</h1>
+          <h3>{{ userData.role }}</h3>
+        </div>
+        <div class="account-type">
+          <ion-badge>{{ userData.account_type}}</ion-badge>
+        </div>
+      </div>
+
+      <div class="profile-buttons">
+        <ion-button size="small" color="dark">Follow</ion-button>
+        <ion-button size="small" color="medium">Message</ion-button>
+      </div>
+    </div>
+  </div>

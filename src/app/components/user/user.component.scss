@@ -1,0 +1,50 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-image {
+    ion-avatar {
+        --border-radius: 10px !important;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    h1, h3 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    h3 {
+        font-size: large;
+    }
+}
+
+.profile-name {
+    width: 200px;
+}
+
+.profile-plus {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.account-type {
+    width: 200px;
+    ion-badge {
+        position: relative;
+        margin-top: 5px;
+        left: 5%;
+    }
+}
+
+.profile-buttons {
+    ion-button {
+        margin-right: 0.5em;
+    }
+}
