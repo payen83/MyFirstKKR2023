@@ -2,6 +2,9 @@
   <ion-toolbar>
     <ion-back-button slot="start"></ion-back-button>
     <ion-title>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button id="present-alert">Translate</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,19 +16,27 @@
   </ion-header>
   
   <app-user [userData]="user"></app-user>
+  
+  <ion-alert
+    trigger="present-alert"
+    header="Select your language"
+    [buttons]="alertButtons"
+    [inputs]="alertInputs"
+    (didDismiss)="setLanguage($event)"
+  ></ion-alert>
 
   <div class="stats-container ion-padding-start ion-padding-end">
     <div class="stats">
       <h3>1533</h3>
-      <p>Likes</p>
+      <p>{{ "Likes" | translate: lang}}</p>
     </div>
     <div class="stats">
       <h3>57K</h3>
-      <p>Followers</p>
+      <p>{{ "Followers" | translate: lang}}</p>
     </div>
     <div class="stats">
       <h3>636</h3>
-      <p>Following</p>
+      <p>{{ "Following" | translate: lang}}</p>
     </div>
   </div>
 

@@ -11,7 +11,34 @@ export class ProfilePage implements OnInit {
   public showOverlay: boolean = false;
   public showGuide1: boolean = false;
   public showGuide2: boolean = false;
+  public lang: string = "EN";
+  public alertButtons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+    },
+    {
+      text: 'OK',
+      role: 'confirm',
+      handler: (data: any) => {
+        // console.log(data);
+      },
+    },
+  ];
 
+  public alertInputs = [
+    {
+      label: 'English',
+      type: 'radio',
+      value: 'EN',
+    },
+    {
+      label: 'Bahasa Malaysia',
+      type: 'radio',
+      value: 'MY',
+    }
+  ];
+  
   constructor(private storage: Storage) { 
     this.user = {
       name: "Amin Daud",
@@ -21,6 +48,11 @@ export class ProfilePage implements OnInit {
     }
   }
 
+  setLanguage(ev: any) {
+    // console.log(ev);
+    this.lang = ev.detail.data.values;
+  }
+  
   guide1Click(){
     this.showGuide1 = false;
     this.showGuide2 = true;
@@ -36,14 +68,12 @@ export class ProfilePage implements OnInit {
   async ngOnInit() {
     await this.storage.create();
     // await this.storage.clear();
-    //check data in local storage to show guide
     let firstTimeLoading: any = await this.storage.get('FIRST_TIME');
-
+    //check data in local storage to show guide
     if(!firstTimeLoading) {
       this.showOverlay = true;
       this.showGuide1 = true;
     }
-    // alert('baru masuk page profile');
   }
 
   ionViewWillLeave(){
