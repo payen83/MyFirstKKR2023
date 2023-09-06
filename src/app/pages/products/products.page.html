@@ -12,7 +12,7 @@
   </ion-header>
 
   <ion-list>
-    <ion-item button="true" *ngFor="let item of products">
+    <ion-item *ngFor="let item of products" routerLink="/detail/{{item.id}}">
       <ion-thumbnail slot="start">
         <ion-img [src]="item.thumbnail"></ion-img>
       </ion-thumbnail>
