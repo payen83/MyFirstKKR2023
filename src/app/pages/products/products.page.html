@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Products</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="doLogout()">Logout</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +15,7 @@
   </ion-header>
 
   <ion-list>
-    <ion-item *ngFor="let item of products" routerLink="/detail/{{item.id}}">
+    <ion-item *ngFor="let item of products" [routerLink]="'/detail/'+item.id">
       <ion-thumbnail slot="start">
         <ion-img [src]="item.thumbnail"></ion-img>
       </ion-thumbnail>

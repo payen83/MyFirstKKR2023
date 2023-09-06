@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="login-container ion-padding">
+    <div class="logo">
+      <ion-img src="assets/shapes.svg"></ion-img>
+    </div>
+    <ion-card>
+      <ion-list>
+        <ion-item>
+          <ion-input type="text" label="Username" [(ngModel)]="user.username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [type]="showEye ? 'text':'password'" label="Password" [(ngModel)]="user.password"></ion-input>
+          <ion-button fill="clear" slot="end" (click)="revealPassword()">
+            <ion-icon color="medium" [name]="showEye ? 'eye-off-outline' : 'eye-outline' "></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="block" (click)="doLogin()">Login</ion-button>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-products',
@@ -11,9 +12,18 @@ export class ProductsPage implements OnInit {
   public products: Array<any>;
   constructor(
     private apiService: ApiService,
-    private loadingCtrl: LoadingController) { 
+    private loadingCtrl: LoadingController,
+    private data: DataService,
+    private navCtrl: NavController
+    ) { 
     this.products = [];
   }
+
+  async doLogout(){
+    await this.data.clearStorage();
+    this.navCtrl.navigateRoot('/login');
+  }
+
 
   async ngOnInit() {
     const loading: any = await this.loadingCtrl.create({
