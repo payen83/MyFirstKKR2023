@@ -5,18 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ProfilePageRoutingModule } from './profile-routing.module';
-
 import { ProfilePage } from './profile.page';
-import { UserComponent } from 'src/app/components/user/user.component';
 import { TranslatePipe } from 'src/app/pipes/translate.pipe';
+import { UserComponentModule } from 'src/app/components/user/user.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilePageRoutingModule
+    ProfilePageRoutingModule,
+    UserComponentModule
   ],
-  declarations: [ProfilePage, UserComponent, TranslatePipe]
+  declarations: [ProfilePage, TranslatePipe]
 })
 export class ProfilePageModule {}
