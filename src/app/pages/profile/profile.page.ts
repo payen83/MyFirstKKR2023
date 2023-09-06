@@ -38,7 +38,7 @@ export class ProfilePage implements OnInit {
       value: 'MY',
     }
   ];
-  
+
   constructor(private storage: Storage) { 
     this.user = {
       name: "Amin Daud",
@@ -70,10 +70,10 @@ export class ProfilePage implements OnInit {
     // await this.storage.clear();
     let firstTimeLoading: any = await this.storage.get('FIRST_TIME');
     //check data in local storage to show guide
-    if(!firstTimeLoading) {
+    // if(!firstTimeLoading) {
       this.showOverlay = true;
       this.showGuide1 = true;
-    }
+    // }
   }
 
   ionViewWillLeave(){
