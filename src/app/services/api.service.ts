@@ -1,13 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { timeout } from 'rxjs';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   private baseURL: string;
-  constructor(private httpClient: HttpClient) { 
+  constructor(
+    private httpClient: HttpClient,
+    private data: DataService
+    ) { 
     this.baseURL ='https://dummyjson.com';
   }
 
@@ -24,9 +28,14 @@ export class ApiService {
     });
   }
 
-  doPost(url: string, payload: any){
+  async doPost(url: string, payload: any, isTokenRequired?: boolean){
     let fullURL: string = this.baseURL + url;
     let headers_: any = { 'Content-Type': 'application/json' };
+    if(isTokenRequired){
+      let userData: any = await this.data.getStorage('USER');
+      console.log(userData);
+      headers_ = { ...headers_, 'Authorization': `Bearer ${userData.token}`};
+    }
     return new Promise((resolve, reject) => {
       this.httpClient.post(fullURL, JSON.stringify(payload), { headers: headers_ })
       .pipe(timeout(5000))
